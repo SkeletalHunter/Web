@@ -1,0 +1,150 @@
+body {
+    font-size: 16px;
+    line-height: 26px;
+    font-family: "bookman old style", sans-serif;
+    background: black;
+}
+
+header,
+main,
+footer {
+    border: 30px solid black;
+    background: #89d2a8;
+}
+
+header {
+    padding: 40px 40px 100px;
+    color: black;
+}
+
+main {
+    padding: 40px 40px 40px 100px;
+    font-size: 24px;
+    color: black;
+}
+
+footer {
+    padding: 40px;
+}
+
+nav {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: normal;
+}
+
+h3 {
+    font-size: 24px;
+    font-style: italic;
+}
+
+a {
+    color: black;
+}
+
+
+section {
+    padding: 20px 0 10px 20px;
+}
+
+blockquote {
+    padding: 8px;
+    font-family: "Times New Roman", sans-serif;
+    font-style: italic;
+    background: white;
+    border-radius: 30%;
+    border: 5px solid #1e0735;
+}
+
+cite {
+    font-weight: bold;
+}
+
+aside {
+    font-family: "Comic Sans MS";
+    margin: 2px;
+    color: #ff0000;
+}
+
+ol {
+    display: inline-block;
+}
+
+pre {
+    font-family: monospace;
+}
+
+.return {
+    font-size: 30px;
+}
+
+.avatar {
+    float: right;
+    padding: 0 20px 0 20px;
+}
+
+.headInfo {
+    padding-bottom: 20px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.headInfo h1 {
+    font-size: 100px;
+}
+
+.headInfo article {
+    font-size: 50px;
+    line-height: 100px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.quote {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+*{
+    font-family: Areal;
+}
+.b-container{
+    margin:0px auto;
+    padding:10px;
+    font-size:20px;
+}
+.b-popup{
+    margin-left: -10%;
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:80%;
+    text-align: center;
+    height: 150px;
+    padding:10px;
+    color: black;
+    background-color: #89d2a8;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}

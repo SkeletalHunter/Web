@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Project_outlines.css">
+    <script src="Project_js.js"></script>
+    <title>Родин Андрей - М33041</title>
+</head>
+<body>
+<header id="header">
+    <nav>
+        <a href="#contacts">Контакты</a>
+        <a href="#main">Главный блок</a>
+    </nav>
+    <div class="headInfo">
+        <img class="avatar" id="avatar" onclick="changeImage()" src="img/photo.png" width="400" height="400">
+        <h1>
+            Личный профиль
+        </h1>
+        <article>
+            Родин Андрей Игоревич
+        </article>
+    </div>
+</header>
+<main id="main">
+    <section>
+        <h1>Привет!</h1>
+        <article>
+            <h3>Мои достижения</h3>
+            <ol>
+                <li>Я родился
+                    <time datetime="2001-02-27">27.02.2001</time>
+                </li>
+                <li>Выучился в
+                    <ins>ФТШ</ins>
+                </li>
+                <li>Поступил в
+                    <ins>ИТМО</ins>
+                </li>
+            </ol>
+        </article>
+    </section>
+    <section>
+        <h4>Использованные сокращения</h4>
+        <dl>
+            <dt>
+                <time datetime="2001-02-27">27.02.2001</time>
+            </dt>
+            <dd>
+                <time datetime="2001-02-27">27 февраля 2001 года</time>
+            </dd>
+            <dt>ФТШ</dt>
+            <dd>Физико-техническая школа</dd>
+            <dt>ИТМО</dt>
+            <dd>Университет информационных технологий, механики и оптики</dd>
+        </dl>
+    </section>
+    <section>
+        <h3>Мои умения</h3>
+        <ul>
+            <li>Вставить этого прекрасного волка<br>
+                <pre>
+                              __
+                            .d$$b
+                          .' TO$;\
+                         /  : TP._;
+                        / _.;  :Tb|
+                       /   /   ;j$j
+                   _.-"       d$$$$
+                 .' ..       d$$$$;
+                /  /P'      d$$$$P. |\
+               /   "      .d$$$P' |\^"l
+             .'           `T$P^"""""  :
+         ._.'      _.'                ;
+      `-.-".-'-' ._.       _.-"    .-"
+    `.-" _____  ._              .-"
+   -(.g$$$$$$$b.              .'
+     ""^^T$$$P^)            .(:
+       _/  -"  /.'         /:/;
+    ._.'-'`-'  ")/         /;/;
+ `-.-"..--""   " /         /  ;
+.-" ..--""        -'          :
+..--""--.-"         (\      .-(\
+  ..--""              `-\(\/;`
+    _.                      :
+                            ;`-
+                           :\
+                           ;
+                </pre>
+            </li>
+            <li>
+                Копировать стихи и вставить сюда
+                <div class="quote">
+                    <blockquote href="https://stihi.ru/editor/2020/08/19/3413">
+                        <p><q>
+                            И был творенья первый день,<br>
+                            Где можно ничего не делать<br>
+                            (ведь впереди - еще неделя,<br>
+                            И небо - кепкой набекрень)...
+                        </q>
+                        </p>
+                    </blockquote>
+                </div>
+                <a href="https://stihi.ru/editor/2020/08/19/3413">Ссылка на источник</a>
+            </li>
+            <li>Придумать
+                <del>нормальную</del>
+                формулу:<br>
+                <div class="formula">
+                    Brains<sub>1</sub><sup>2</sup> + Brains<sub>2</sub><sup>2</sup> = Invention
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <li>Написал данный код
+            <pre style="border: 3px solid black; background: white; padding-left: 10px"><code>
+using System;
+using Battles;
+using System.Collections.Generic;
+using Lab2;
+
+namespace Actions
+{
+    class Actions
+    {
+        public static void DealDamage(BattleUnitsStack Stack, int Damage)
+        {
+            int HitPoints = (Stack.GetCountInfo() - 1) * Stack.GetUnitInfo().GetHitPointsInfo() + Stack.GetCurHitPoints();
+            if (HitPoints > Damage)
+            {
+                int NewHitPoints = (HitPoints - Damage) % Stack.GetUnitInfo().GetHitPointsInfo();
+                if (NewHitPoints == 0)
+                {
+                    Stack.StatsSetHitPoints(Stack.GetUnitInfo().GetHitPointsInfo());
+                    Stack.StatsSetCount((HitPoints - Damage) / Stack.GetUnitInfo().GetHitPointsInfo());
+                }
+                else
+                {
+                    Stack.StatsSetHitPoints(NewHitPoints);
+                    Stack.StatsSetCount((HitPoints - Damage) / Stack.GetUnitInfo().GetHitPointsInfo() + 1);
+                }
+            }
+            else
+            {
+                Stack.StatsSetHitPoints(0);
+                Stack.StatsChangeCount(0);
+            }
+        }
+
+        public static void EndOfUnitTurn(BattleUnitsStack Unit)
+        {
+
+        }
+
+        public static BattleUnitsStack ChooseUnit(BattleArmy Army)
+        {
+            Console.WriteLine("Choose the stack to attack");
+            int count = 0;
+            string input;
+            foreach (BattleUnitsStack ArmyUnit in Army.GetSquad())
+            {
+                count++;
+                Console.WriteLine(count + ": " + ArmyUnit.GetType() + "[" + ArmyUnit.GetCurCount() + "]");
+            }
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (int.TryParse(input, out int x))
+                {
+                    if (x > count || Army.GetSquad()[x - 1].GetCurCount() == 0)
+                    {
+                        if (x > count)
+                        {
+                            Console.WriteLine("That stack does not exist");
+                        }
+                        else
+                        {
+                            Console.WriteLine("That stack is dead");
+                        }
+                    }
+                    else
+                    {
+                        return Army.GetSquad()[x - 1];
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("That is not a number");
+                }
+            }
+        }
+    }
+}
+                    </code></pre>
+        </li>
+    </section>
+    <aside><strong>Не будьте мной!</strong></aside>
+</main>
+<footer>
+    <h1 id="contacts">Контакты</h1>
+    <section>
+        <ul>
+            <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    PopUpHide();
+                });
+
+                function PopUpShow() {
+                    $("#popup").show();
+                }
+
+                function PopUpHide() {
+                    $("#popup").hide();
+                }
+            </script>
+            <div class="b-container">
+                <li><strong>Почта:</strong> rodin_andrey2001@mail.com</li>
+                <li><strong>VK:</strong> https://vk.com/skeletalhunter</li>
+                <li><strong>Телефон:</strong> +7 (981) 680-66-70</li>
+                <a href="javascript:PopUpShow()">Подробнее</a>
+                <a href="#header"><br>Наверх</a><br>
+                <button onclick="lab5_1()">Выполнить задание 5 лабораторной работы (1-3 часть)</button>
+                <button onclick="lab5_2()">Выполнить задание 5 лабораторной работы (4 часть)</button>
+            </div>
+            <div class="b-popup" id="popup" style="display: none;">
+                <div class="b-popup-content">
+                    <strong>Почта:</strong> rodin_andrey2001@mail.com<br>
+                    <a href="https://vk.com/skeletalhunter"><strong>VK:</strong> https://vk.com/skeletalhunter</a><br>
+                    <strong>Телефон:</strong> +7 (981) 680-66-70<br>
+                    <button onclick="javascript:PopUpHide()">Закрыть окно</button>
+                </div>
+            </div>
+        </ul>
+    </section>
+</footer>
