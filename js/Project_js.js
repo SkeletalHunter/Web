@@ -93,7 +93,7 @@ function partition(arr, left, right) {
 }
 
 function changeImage() {
-    let images = ['photo.png', 'valenok.png'];
+    let images = ['1.JPG', '2.JPG'];
     let element = document.getElementById('avatar');
     let path = element.src.split('/');
     let name = path[path.length - 1];
