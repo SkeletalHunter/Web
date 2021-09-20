@@ -9,36 +9,36 @@
 <body>
 <header id="header">
     <nav>
-        <a href="#contacts">Контакты</a>
-        <a href="#main">Главный блок</a>
+        <ul>
+            <li><a href="#contacts">Контакты</a>
+            <li><a href="#main">Главный блок</a>
+        </ul>
     </nav>
     <div class="headInfo">
-        <img class="avatar" id="avatar" onclick="changeImage()" src="img/photo.png" width="400" height="400">
+        <img class="avatar" id="avatar" onclick="changeImage()" src="img/1.JPG" width="20%" height="20%">
         <h1>
             Личный профиль
         </h1>
-        <article>
+        <h2>
             Родин Андрей Игоревич
-        </article>
+        </h2>
     </div>
 </header>
 <main id="main">
     <section>
-        <h1>Привет!</h1>
-        <article>
+        <h2>Привет!</h2>
             <h3>Мои достижения</h3>
             <ol>
                 <li>Я родился
                     <time datetime="2001-02-27">27.02.2001</time>
                 </li>
                 <li>Выучился в
-                    <ins>ФТШ</ins>
+                    <u>ФТШ</u>
                 </li>
                 <li>Поступил в
-                    <ins>ИТМО</ins>
+                    <u>ИТМО</u>
                 </li>
             </ol>
-        </article>
     </section>
     <section>
         <h4>Использованные сокращения</h4>
@@ -92,12 +92,11 @@
                 Копировать стихи и вставить сюда
                 <div class="quote">
                     <blockquote href="https://stihi.ru/editor/2020/08/19/3413">
-                        <p><q>
+                        <p>
                             И был творенья первый день,<br>
                             Где можно ничего не делать<br>
                             (ведь впереди - еще неделя,<br>
                             И небо - кепкой набекрень)...
-                        </q>
                         </p>
                     </blockquote>
                 </div>
@@ -124,21 +123,29 @@ namespace Actions
 {
     class Actions
     {
-        public static void DealDamage(BattleUnitsStack Stack, int Damage)
+        public static void DealDamage
+        (BattleUnitsStack Stack,
+        int Damage)
         {
-            int HitPoints = (Stack.GetCountInfo() - 1) * Stack.GetUnitInfo().GetHitPointsInfo() + Stack.GetCurHitPoints();
+            int HitPoints = (Stack.GetCountInfo() - 1)
+            * Stack.GetUnitInfo().GetHitPointsInfo()
+            + Stack.GetCurHitPoints();
             if (HitPoints > Damage)
             {
-                int NewHitPoints = (HitPoints - Damage) % Stack.GetUnitInfo().GetHitPointsInfo();
+                int NewHitPoints = (HitPoints - Damage)
+                % Stack.GetUnitInfo().GetHitPointsInfo();
                 if (NewHitPoints == 0)
                 {
-                    Stack.StatsSetHitPoints(Stack.GetUnitInfo().GetHitPointsInfo());
-                    Stack.StatsSetCount((HitPoints - Damage) / Stack.GetUnitInfo().GetHitPointsInfo());
+                    Stack.StatsSetHitPoints(Stack.GetUnitInfo()
+                    .GetHitPointsInfo());
+                    Stack.StatsSetCount((HitPoints - Damage)
+                    / Stack.GetUnitInfo().GetHitPointsInfo());
                 }
                 else
                 {
                     Stack.StatsSetHitPoints(NewHitPoints);
-                    Stack.StatsSetCount((HitPoints - Damage) / Stack.GetUnitInfo().GetHitPointsInfo() + 1);
+                    Stack.StatsSetCount((HitPoints - Damage)
+                    / Stack.GetUnitInfo().GetHitPointsInfo() + 1);
                 }
             }
             else
@@ -161,22 +168,31 @@ namespace Actions
             foreach (BattleUnitsStack ArmyUnit in Army.GetSquad())
             {
                 count++;
-                Console.WriteLine(count + ": " + ArmyUnit.GetType() + "[" + ArmyUnit.GetCurCount() + "]");
+                Console.WriteLine(count
+                + ": "
+                + ArmyUnit.GetType()
+                + "["
+                + ArmyUnit.GetCurCount()
+                + "]");
             }
             while (true)
             {
                 input = Console.ReadLine();
                 if (int.TryParse(input, out int x))
                 {
-                    if (x > count || Army.GetSquad()[x - 1].GetCurCount() == 0)
+                    if (x > count
+                    || Army.GetSquad()[x - 1].GetCurCount()
+                    == 0)
                     {
                         if (x > count)
                         {
-                            Console.WriteLine("That stack does not exist");
+                            Console.WriteLine
+                            ("That stack does not exist");
                         }
                         else
                         {
-                            Console.WriteLine("That stack is dead");
+                            Console.WriteLine
+                            ("That stack is dead");
                         }
                     }
                     else
@@ -186,7 +202,8 @@ namespace Actions
                 }
                 else
                 {
-                    Console.WriteLine("That is not a number");
+                    Console.WriteLine
+                    ("That is not a number");
                 }
             }
         }
@@ -201,7 +218,7 @@ namespace Actions
     <h1 id="contacts">Контакты</h1>
     <section>
         <ul>
-            <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+            <script src="https://code.jquery.com/jquery-2.0.2.min.js"></script>
             <script>
                 $(document).ready(function () {
                     PopUpHide();
