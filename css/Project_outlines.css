@@ -91,9 +91,12 @@ ol {
 pre {
     border: 3px solid black;
     padding-left: 10px;
-    background: white;
     font-family: monospace;
     line-height: 1.3;
+}
+
+code {
+    background: white;
 }
 
 .return {
