@@ -10,8 +10,7 @@
 <header id="header">
     <nav>
         <ul>
-            <li><a href="#contacts">Контакты</a>
-            <li><a href="#main">Главный блок</a>
+            <li><a class="link" href="#main">К главному блоку</a>
         </ul>
     </nav>
     <div class="headInfo">
@@ -100,19 +99,15 @@
                         </p>
                     </blockquote>
                 </div>
-                <a href="https://stihi.ru/editor/2020/08/19/3413">Ссылка на источник</a>
+                <a class="link" href="https://stihi.ru/editor/2020/08/19/3413">Ссылка на источник</a>
             </li>
             <li>Придумать
-                <del>нормальную</del>
+                <a class="line-through">нормальную</a>
                 формулу:<br>
                 <div class="formula">
                     Brains<sub>1</sub><sup>2</sup> + Brains<sub>2</sub><sup>2</sup> = Invention
                 </div>
             </li>
-        </ul>
-    </section>
-
-    <section>
         <li>Написал данный код
             <pre class="script">
 using System;
@@ -212,12 +207,40 @@ namespace Actions
 }
             </pre>
         </li>
+        </ul>
     </section>
-    <aside><strong>Не будьте мной!</strong></aside>
+    <aside>Не будьте мной!</aside>
+    <div class="grid-container">
+        <div class="grid-title"> Colors </div>
+        <div class="grid-0">  </div>
+        <div class="grid-red-1"> Red </div>
+        <div class="grid-blue-1"> Blue </div>
+        <div class="grid-green-1"> Green </div>
+        <div class="grid-yellow-1"> Yellow </div>
+        <div class="grid-red-2"> Red </div>
+        <div class="grid-red-3"> Red </div>
+        <div class="grid-purple-1"> Purple </div>
+        <div class="grid-brown-1"> Brown </div>
+        <div class="grid-orange-1"> Orange </div>
+        <div class="grid-blue-2"> Blue </div>
+        <div class="grid-purple-2"> Purple </div>
+        <div class="grid-blue-3"> Blue </div>
+        <div class="grid-turquoise-1"> Turquoise </div>
+        <div class="grid-green-2"> Green </div>
+        <div class="grid-green-3"> Green </div>
+        <div class="grid-brown-2"> Brown </div>
+        <div class="grid-turquoise-2"> Turquoise </div>
+        <div class="grid-green-4"> Green </div>
+        <div class="grid-olive-1"> Olive </div>
+        <div class="grid-yellow-2"> Yellow </div>
+        <div class="grid-orange-2"> Orange </div>
+        <div class="grid-green-5"> Green </div>
+        <div class="grid-olive-2"> Olive </div>
+        <div class="grid-yellow-3"> Yellow </div>
+    </div>
 </main>
 <footer>
-    <h2 id="contacts">Контакты</h2>
-    <section>
+    <section id="contacts">
         <ul>
             <script src="https://code.jquery.com/jquery-2.0.2.min.js"></script>
             <script>
@@ -234,17 +257,17 @@ namespace Actions
                 }
             </script>
             <div class="b-container">
-                <li><strong>Почта:</strong> rodin_andrey2001@mail.com</li>
-                <li><strong>VK:</strong> https://vk.com/skeletalhunter</li>
-                <li><strong>Телефон:</strong> +7 (981) 680-66-70</li>
-                <a href="javascript:PopUpShow()">Подробнее</a>
-                <a href="#header"><br>Наверх</a><br>
+                <li><b>Почта:</b> rodin_andrey2001@mail.com</li>
+                <li><b>VK:</b> https://vk.com/skeletalhunter</li>
+                <li><b>Телефон:</b> +7 (981) 680-66-70</li>
+                <a class="link" href="javascript:PopUpShow()">Подробнее</a>
+                <a class="link" href="#header"><br>Наверх</a><br>
             </div>
             <div class="b-popup" id="popup" style="display: none;">
                 <div class="b-popup-content">
-                    <strong>Почта:</strong> rodin_andrey2001@mail.com<br>
-                    <a href="https://vk.com/skeletalhunter"><strong>VK:</strong> https://vk.com/skeletalhunter</a><br>
-                    <strong>Телефон:</strong> +7 (981) 680-66-70<br>
+                    <b>Почта:</b> rodin_andrey2001@mail.com<br>
+                    <a class="link" href="https://vk.com/skeletalhunter"><strong>VK:</strong> https://vk.com/skeletalhunter</a><br>
+                    <b>Телефон:</b> +7 (981) 680-66-70<br>
                     <button onclick="javascript:PopUpHide()">Закрыть окно</button>
                 </div>
             </div>
