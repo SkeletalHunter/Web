@@ -4,7 +4,7 @@ body {
     font-family: Arial;
     background: black;
     line-height: 1.5;
-    margin-bottom: 20%;
+    margin-bottom: 176px;
 }
 
 header,
@@ -26,12 +26,29 @@ main {
 }
 
 footer {
-    padding: 40px;
+    height: 96px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 10px 20px 10px 0px;
+    border-top: 35px solid black;
 }
 
 nav {
     padding-top: 10px;
     padding-bottom: 20px;
+}
+
+ul.navigation li{
+    display: inline;
+    margin-right: 5px;
+    border: black 1px solid;
+    padding: 3px;
+}
+
+.navigation{
+    float: left
 }
 
 h1,
@@ -96,6 +113,9 @@ pre {
     padding-left: 10px;
     border: 3px solid black;
     background: white;
+    width: auto;
+    height: 400px;
+    overflow: scroll;
 }
 
 .return {
@@ -163,14 +183,6 @@ pre {
     box-shadow: 0px 0px 10px #000;
 }
 
-footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    padding: 10px 0px;
-}
-
 #contacts{
     padding: 0;
 }
@@ -192,6 +204,8 @@ footer{
 }
 .grid-container{
     border: 3px black solid;
+    overflow: scroll;
+    margin-bottom: 10px;
 }
 .grid-red-1,
 .grid-blue-1,
@@ -328,4 +342,48 @@ footer{
 }
 p{
     text-indent: 20px;
+}
+.ascii-art{
+    height: 300px;
+    overflow: scroll;
+}
+.section-gallery {
+    margin-bottom: 64px;
+}
+.gallery {
+    position: relative;
+    border: black 3px solid;
+}
+.gallery-flex {
+    height: 400px;
+    display: flex;
+}
+.gallery-flex_column {
+    flex-direction: column;
+}
+.gallery-item {
+    flex: 1;
+    transition: flex-grow 0.64s ease-in-out;
+    overflow: hidden;
+    min-height: 0;
+    border: black 1px solid;
+}
+.gallery-item:hover {
+    flex: 4;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.6s;
+}
+.page-loaded-text{
+    text-align: end;
+}
+.page-loaded-result{
+    color: red;
+}
+.link:hover{
+    color: purple;
 }
