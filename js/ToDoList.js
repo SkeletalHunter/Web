@@ -1,9 +1,9 @@
 function sendTask() {
-    var task = document.getElementById("input")
+    var task = document.getElementById("task-input-text")
     var div = document.createElement("div")
     var window = document.getElementById("task-window")
     window.appendChild(div)
-    window.lastElementChild.className = "message"
+    window.lastElementChild.className = "task"
     window.lastElementChild.innerHTML = task.value
     createCross(window.lastElementChild)
 }
