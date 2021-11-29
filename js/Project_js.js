@@ -10,7 +10,7 @@ function changeImage() {
 }
 const findLoadTime = (function() {
     document.getElementsByClassName("page-loaded-result")[0].innerText =
-        (window.performance.timing.domContentLoadedEventEnd -
+        (window.performance.timing.loadEventStart -
             window.performance.timing.navigationStart) / 1000;
 });
 window.addEventListener('load', (event) => {
