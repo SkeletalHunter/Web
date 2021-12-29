@@ -9,11 +9,18 @@
 </head>
 <body>
 <main>
-    <div class = "task-input">
-        <input type="text" id="task-input-text">
-        <input type="submit" value="SUBMIT" id="task-input-button" onclick = sendTask()>
+    <form id="addingForm">
+        <input type="text" class="form-control" id="task-input" required="required" placeholder="Введите задание...">
+        <input type="submit" id="submit" value="Добавить">
+        <button class="delete-all" onclick="deleteAll()">Удалить все</button>
+    </form>
+    <h2>Мой список дел</h2>
+    <div class="queue">
+        <ul class="list-group" id="tasks"></ul>
+        <template>
+            <li class="task-text"><button class="delete">x</button></li>
+        </template>
     </div>
-    <div id = "task-window"></div>
 </main>
 <footer>
     <nav>
