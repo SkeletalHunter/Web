@@ -1,40 +1,33 @@
+
 function loadJSON(data) {
-    let users = document.getElementsById('users');
-    users.innerHTML = '<p">ID: ' + data.id + '</p>';
+    let text = '';
+    text += '<p">ID: ' + data.id + '</p>';
+    text += '<p">Name: ' + data.name + '</p>';
+    text += '<p">Username: ' + data.username + '</p>';
+    text += '<p">Geo: ' + data.address.geo.lat + ', ' + data.address.geo.lng + '</p>';
+    let people = document.getElementById('people-info');
+    people.innerHTML = text;
+}
+
+function createPeople(){
+    let people = document.getElementById('people-info');
+    people.innerHTML = '';
+    let preloader = document.getElementById('preloader');
+    preloader.style.display = "inline";
+    setTimeout(() => {
+        let item = Math.floor(Math.random() * 10 + 1);
+        fetch('https://jsonplaceholder.typicode.com/users/' + item)
+            .then(response => response.json())
+            .then(json => loadJSON(json))
+            .catch(function(err) {
+                people.innerHTML = '<p>⚠ Что-то пошло не так</p>';
+            })
+            .finally(() => {
+                preloader.style.display = 'none';
+            });
+    }, 1000)
 }
 
 window.addEventListener('load', function (event) {
-    setTimeout(() => {
-        let item = Math.floor(Math.random() * 10 + 1);
-        console.log(item);
-        fetch('https://jsonplaceholder.typicode.com/users/' + item)
-            .then(
-                function(response) {
-                    if (response.status !== 200) {
-                        console.log('Looks like there was a problem. Status Code: ' +
-                            response.status);
-                        return;
-                    }
-
-                    // Examine the text in the response
-                    response.json().then(function(data) {
-                        console.log(data);
-                        let users = document.getElementsById("people");
-                        users.innerHTML = '<p">ID: ' + data.id + '</p>';
-                    });
-                }
-            )
-            .then(response => response.json(),
-            console.log(4))
-            .then(json => loadJSON(json))
-            .catch(function(err) {
-                console.log('Fetch Error :-S', err);
-                console.log(2);
-                let users = '<p>⚠ Что-то пошло не так</p>';
-            })
-            .finally(() => {
-                console.log(3);
-                document.getElementById('preloader').remove();
-            });
-    }, 2000)
+    createPeople();
 });
