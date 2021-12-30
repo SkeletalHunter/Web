@@ -1,10 +1,10 @@
 
 function loadJSON(data) {
     let text = '';
-    text += '<p">ID: ' + data.id + '</p>';
-    text += '<p">Name: ' + data.name + '</p>';
-    text += '<p">Username: ' + data.username + '</p>';
-    text += '<p">Geo: ' + data.address.geo.lat + ', ' + data.address.geo.lng + '</p>';
+    text += '<p>ID: ' + data.id + '</p>';
+    text += '<p>Name: ' + data.name + '</p>';
+    text += '<p>Username: ' + data.username + '</p>';
+    text += '<p>Geo: ' + data.address.geo.lat + ', ' + data.address.geo.lng + '</p>';
     let people = document.getElementById('people-info');
     people.innerHTML = text;
 }
