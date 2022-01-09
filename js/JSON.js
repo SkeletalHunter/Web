@@ -1,6 +1,13 @@
 
 function loadJSON(data) {
-    if (!('content' in document.createElement('template'))) {
+        let text = '';
+        text += '<p>ID: ' + data.id + '</p>';
+        text += '<p>Name: ' + data.name + '</p>';
+        text += '<p>Username: ' + data.username + '</p>';
+        text += '<p>Geo: ' + data.address.geo.lat + ', ' + data.address.geo.lng + '</p>';
+        let people = document.getElementById('people-info');
+        people.innerHTML = text;
+    /*
         let template = document.getElementById('people-template');
         let peopleInfo = document.querySelector('#people-info');
         console.log(template);
@@ -14,22 +21,14 @@ function loadJSON(data) {
         let templateGeo = clone.querySelector('#people-geo')
         templateGeo.content = data.address.geo.lat + ', ' + data.address.geo.lng;
         peopleInfo.appendChild(clone);
-    } else {
-        let text = '';
-        text += '<p>ID: ' + data.id + '</p>';
-        text += '<p>Name: ' + data.name + '</p>';
-        text += '<p>Username: ' + data.username + '</p>';
-        text += '<p>Geo: ' + data.address.geo.lat + ', ' + data.address.geo.lng + '</p>';
-        let people = document.getElementById('people-info');
-        people.innerHTML = text;
-    }
+    */
 }
 
 function createPeople(){
     let people = document.getElementById('people-info');
     people.innerHTML = '';
     let template = document.getElementById('people-template');
-    console.log(template);
+    //console.log(template);
     let preloader = document.getElementById('preloader');
     preloader.style.display = "inline";
     setTimeout(() => {
