@@ -14,11 +14,12 @@
     <div id="people-window">
         <button id="RefreshButton" onclick="createPeople()">Next</button>
         <div id="people-info">
-            <template>
-                <p>ID: </p>
-                <p>Name: </p>
-                <p>Username: </p>
-                <p>Geo: , </p>
+
+            <template id="people-template">
+                ID: <p id="people-ID"></p>
+                Name: <p id="people-name"></p>
+                Username: <p id="people-username"></p>
+                Geo: <p id="people-geo"></p>
             </template>
         </div>
         <img src="img/loading.gif" id="preloader">

@@ -1,8 +1,6 @@
 window.onload = () => {
     let addingForm = document.querySelector("#addingForm");
     addingForm.addEventListener("submit", addName);
-    const taskDeleteButton = document.getElementById("submit")
-    taskDeleteButton.addEventListener("click", deleteName);
     const taskDeleteAllButton = document.getElementById("delete-all")
     taskDeleteAllButton.addEventListener("click", deleteAll);
     loadTasks();
@@ -18,7 +16,7 @@ function loadTasks() {
             li.className = "task-text";
             let deleteButton = document.createElement("button");
             deleteButton.className = "delete";
-            deleteButton.onclick = "deleteName()";
+            deleteButton.onclick = deleteName;
             deleteButton.appendChild(document.createTextNode("x"));
             li.appendChild(document.createTextNode(task_text));
             li.appendChild(deleteButton);
@@ -40,7 +38,7 @@ function addName(element) {
     li.className = "task-text";
     let deleteButton = document.createElement("button");
     deleteButton.className = "delete";
-    deleteButton.onclick = "deleteName()";
+    deleteButton.onclick = deleteName;
     deleteButton.appendChild(document.createTextNode("x"));
     li.appendChild(document.createTextNode(newTask));
     li.appendChild(deleteButton);
@@ -48,17 +46,19 @@ function addName(element) {
 }
 
 function deleteName(element) {
-    if (element.target.classList.contains("delete")) {
         let li = element.target.parentNode;
         let sortedKeys = Object.keys(localStorage).sort()
         for(let i = 0; i < tasks.childNodes.length; i++) {
             if (tasks.childNodes[i] === li) {
                 tasks.removeChild(li);
                 localStorage.removeItem(sortedKeys[i])
+                for(; i < tasks.childNodes.length; i++){
+                    localStorage.setItem(sortedKeys[i], JSON.stringify(JSON.parse(localStorage.getItem(sortedKeys[i+1]))));
+                }
+                localStorage.removeItem(sortedKeys[i]);
                 break;
             }
         }
-    }
 }
 
 function deleteAll() {
